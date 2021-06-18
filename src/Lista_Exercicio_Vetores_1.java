@@ -3,10 +3,7 @@ import java.util.Scanner;
 public class Lista_Exercicio_Vetores_1 
 {
     /*
-        1. Faça um programa que permita ao usuário digitar 30 atividades 
-    que ele realizou no dia. Ao final, o programa deve possibilitar que o 
-    usuário escolha se quer exibir as atividades na ordem em que digitou 
-    ou em ordem reversa. 
+        1. Faça um programa que permita ao usuário digitar 30 atividades que ele realizou no dia. Ao final, o programa deve possibilitar que o usuário escolha se quer exibir as atividades na ordem em que digitou ou em ordem reversa. 
     */
     public static void main(String[] args) 
     {
@@ -34,7 +31,7 @@ public class Lista_Exercicio_Vetores_1
         if (escolha == 1)
         {
             System.out.println("As atividades foram:");
-            
+
             for (int i=0; i < atividades.length; i++)
             {
                 System.out.println(atividades[i]);
