@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.lang.model.util.ElementScanner6;
-
 public class Lista_Exercicio_Vetores_4 
 {
     /*
