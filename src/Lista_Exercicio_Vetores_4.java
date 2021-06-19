@@ -17,19 +17,16 @@ public class Lista_Exercicio_Vetores_4
     {
         Scanner leitor = new Scanner(System.in);
 
-        int qtd, comprado=0, opcao=0;
+        int comprado=0, vetor=5, qtd=0, opcao=0, posicao=0;
         double totalCompra=0, maiorValor=0;
         String nomeMaiorValor = "";
         String nomeRemover = "";
         boolean carrinhoCheio = false;
 
-        System.out.println("Informe a quantidade de posições que serão utilizadas no vetor:");
-        qtd = leitor.nextInt();
-
         leitor.nextLine();
 
-        double vetCarrinhoValores[] = new double[qtd];
-        String vetCarrinhoNomes[] = new String[qtd];
+        double vetCarrinhoValores[] = new double[vetor];
+        String vetCarrinhoNomes[] = new String[vetor];
 
         while (opcao != 7)
         {
@@ -48,34 +45,44 @@ public class Lista_Exercicio_Vetores_4
             
             switch(opcao)
             {
+
                 case 1:
                     if (carrinhoCheio == false)
                     {
+                        System.out.println("Informe a quantidade de produtos que serão adicionados no carrinho:");
+                        qtd = leitor.nextInt();
+
+                        leitor.nextLine();
 
                         for (int i = 0; i < qtd; i++)
                         {
-                            System.out.println("Digite o nome de um produto:");
-                            vetCarrinhoNomes[i] = leitor.nextLine();
-
-                            System.out.println("Digite o preço do produto:");
-                            vetCarrinhoValores[i] = leitor.nextDouble();
-
-                            leitor.nextLine();
-
-                            if (vetCarrinhoValores[i] > maiorValor )
-                            {
-                                maiorValor = vetCarrinhoValores[i];
-                                nomeMaiorValor = vetCarrinhoNomes[i];
-                            }
-
-                            totalCompra = totalCompra + vetCarrinhoValores[i];
-
-                            comprado++;
-
-                            if (i == qtd -1)
+                            
+                            if (posicao == vetor)
                             {
                                 carrinhoCheio = true;
                                 System.out.println("Carrinho Cheio.");
+                            }
+                            else
+                            {
+                                System.out.println("Digite o nome de um produto:");
+                                vetCarrinhoNomes[i] = leitor.nextLine();
+
+                                System.out.println("Digite o preço do produto:");
+                                vetCarrinhoValores[i] = leitor.nextDouble();
+
+                                leitor.nextLine();
+
+                                if (vetCarrinhoValores[i] > maiorValor )
+                                {
+                                    maiorValor = vetCarrinhoValores[i];
+                                    nomeMaiorValor = vetCarrinhoNomes[i];
+                                }
+
+                                totalCompra = totalCompra + vetCarrinhoValores[i];
+
+                                comprado++;
+
+                                posicao++;
                             }
                         }
                     }
@@ -89,9 +96,7 @@ public class Lista_Exercicio_Vetores_4
                     System.out.println("Informe o nome do produto que deseja remover:");
                     nomeRemover = leitor.nextLine();
 
-                    leitor.nextLine();
-
-                        for (int i = 0; i < qtd; i++)
+                        for (int i = 0; i < vetCarrinhoNomes.length; i++)
                         {
                             if (nomeRemover.equalsIgnoreCase(vetCarrinhoNomes[i]))
                             {
@@ -118,9 +123,14 @@ public class Lista_Exercicio_Vetores_4
                 break;
 
                 case 6:
-                    for (int i = 0; i < qtd; i++)
+                    System.out.println("Items do carrinho:");
+
+                    for (int i = 0; i < vetor; i++)
                     {
-                        System.out.println("Produto: " + vetCarrinhoNomes[i] + " --- Valor R$ " + vetCarrinhoValores[i]);
+                        if (!vetCarrinhoNomes[i].equalsIgnoreCase(""))
+                        {
+                            System.out.println("Produto: " + vetCarrinhoNomes[i] + " -- Valor R$ " + vetCarrinhoValores[i]);
+                        }
                     }
                 break;
 
